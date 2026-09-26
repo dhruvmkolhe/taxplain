@@ -1,0 +1,6 @@
+{
+  "name": "TaxPlain",
+  "description": "An intelligent GST and tax document simplifier for Chartered Accountants and SME business owners in India.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

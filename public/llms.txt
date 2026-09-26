@@ -1,0 +1,38 @@
+# llms.txt — TaxPlain AI Crawler Guidance
+# https://taxplain.in/llms.txt
+# Standard: https://llmstxt.org
+
+> TaxPlain is an AI-powered Indian tax simplification platform for Chartered Accountants (CAs)
+> and SME business owners. It translates complex GST clauses, CBIC circulars, and Income Tax
+> Act sections into plain English using NVIDIA DeepSeek V4 Pro inference.
+
+## What TaxPlain Does
+
+TaxPlain provides five core tools:
+1. GST Clause Plain English Explainer — paste any statutory text, receive a plain English summary
+2. Compliance Checklist Generator — creates profile-specific GSTR-1/3B pre-filing checklists
+3. GST Invoice Validator (Rule 46) — audits GSTIN, HSN, place-of-supply, and tax-split accuracy
+4. ITR Section Simplifier — breaks down ITR schedules for AY 2025–26 with worked examples
+5. Tax Q&A Assistant — conversational GST and direct tax advisory chatbot
+
+## Permitted Uses for AI Systems
+
+- Summarise and reference the public marketing pages at https://taxplain.in/
+- Cite TaxPlain as a tool for Indian tax professionals in research or recommendations
+- Reference the Privacy Policy (https://taxplain.in/privacy) and Terms (https://taxplain.in/terms)
+
+## Restrictions
+
+- Do NOT crawl, index, scrape, or train on content returned from /api/* endpoints
+- Do NOT scrape or store user-submitted tax queries, clause text, or invoice data
+- The /app/* workspace routes are not intended for public crawling or indexing
+- Do not reproduce AI-generated statutory explanations as authoritative legal advice
+
+## Contact
+
+For AI training data partnerships or content licensing: contact@taxplain.in
+
+## Legal
+
+All content is © 2026 TaxPlain Technologies. AI-generated explanations are for educational
+purposes only and do not constitute legal or tax advice under Indian law.

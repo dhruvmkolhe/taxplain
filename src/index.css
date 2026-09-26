@@ -1,0 +1,450 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+:root, html.light {
+  --bg-base: #ffffff;
+  --bg-subtle: #fafafa;
+  --surface: #ffffff;
+  --surface-hover: #f4f4f5;
+  --border-color: #e5e7eb;
+  --border-hover: #d1d5db;
+  --border-focus: #111111;
+  --text-primary: #111111;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --accent-bg: #111111;
+  --accent-text: #ffffff;
+  color-scheme: light;
+}
+
+html.dark, .dark {
+  --bg-base: #0f0f0f;
+  --bg-subtle: #161616;
+  --surface: #1a1a1a;
+  --surface-hover: #242424;
+  --border-color: #2a2a2a;
+  --border-hover: #404040;
+  --border-focus: #f2f2f2;
+  --text-primary: #f2f2f2;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --accent-bg: #f2f2f2;
+  --accent-text: #0f0f0f;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Single font family across headings and body */
+.font-mono, pre, code {
+  font-family: 'Inter', system-ui, monospace;
+}
+
+/* Minimalist clean scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: 2px;
+}
+
+/* Decorative background grid removal */
+.bg-grid-pattern, .bg-radial-dots {
+  background-image: none !important;
+  display: none !important;
+}
+
+/* Minimalist shadows and blur removal in BOTH light and dark modes */
+.shadow-xl, .shadow-2xl, .shadow-md, .shadow-lg {
+  box-shadow: none !important;
+}
+
+.backdrop-blur-md, .backdrop-blur-sm, .backdrop-blur-none {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Markdown prose styling */
+.tax-prose {
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-size: 0.9375rem;
+}
+
+.tax-prose h1, .tax-prose h2, .tax-prose h3 {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.tax-prose h2 {
+  font-size: 1.125rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.35rem;
+}
+
+.tax-prose ul, .tax-prose ol {
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tax-prose li, .tax-prose p {
+  margin-bottom: 0.35rem;
+  color: var(--text-primary);
+  opacity: 0.9;
+}
+
+.tax-prose strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.tax-prose code {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  border: 1px solid var(--border-color);
+  font-size: 0.85em;
+}
+
+/* ==========================================================================
+   MINIMALIST DARK MODE COMPREHENSIVE OVERRIDES (.dark)
+   ========================================================================== */
+
+/* Dark Mode Base Body */
+.dark body {
+  background-color: #0f0f0f !important;
+  color: #f2f2f2 !important;
+}
+
+/* Dark Mode Background Surfaces */
+.dark .bg-white,
+.dark [class*="bg-[#ffffff]"] {
+  background-color: #1a1a1a !important;
+}
+
+.dark .bg-gray-50,
+.dark .bg-slate-50,
+.dark .bg-zinc-50,
+.dark .bg-neutral-50,
+.dark [class*="bg-[#fafafa]"] {
+  background-color: #161616 !important;
+}
+
+.dark .bg-gray-100,
+.dark .bg-slate-100,
+.dark .bg-zinc-100,
+.dark .bg-neutral-100,
+.dark .bg-gray-200,
+.dark .bg-slate-200,
+.dark .bg-zinc-200 {
+  background-color: #242424 !important;
+}
+
+/* Dark Mode Borders */
+.dark .border,
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-gray-300,
+.dark .border-slate-200,
+.dark .border-slate-300,
+.dark .border-zinc-200,
+.dark .border-zinc-300,
+.dark [class*="border-[#e5e7eb]"] {
+  border-color: #2a2a2a !important;
+}
+
+.dark .divide-gray-100 > :not([hidden]) ~ :not([hidden]),
+.dark .divide-gray-200 > :not([hidden]) ~ :not([hidden]),
+.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #2a2a2a !important;
+}
+
+/* Dark Mode Text Utilities - Primary (#F2F2F2) */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6,
+.dark .text-gray-900,
+.dark .text-slate-900,
+.dark .text-zinc-900,
+.dark .text-neutral-900,
+.dark .text-gray-800,
+.dark .text-slate-800,
+.dark .text-zinc-800,
+.dark .text-neutral-800,
+.dark .text-black,
+.dark .text-\[\#111111\] {
+  color: #f2f2f2 !important;
+}
+
+/* Dark Mode Text Utilities - Secondary (#E5E7EB) */
+.dark .text-gray-700,
+.dark .text-slate-700,
+.dark .text-zinc-700,
+.dark .text-neutral-700,
+.dark .text-gray-600,
+.dark .text-slate-600,
+.dark .text-zinc-600,
+.dark .text-neutral-600 {
+  color: #e5e7eb !important;
+}
+
+/* Dark Mode Text Utilities - Muted (#9CA3AF) */
+.dark .text-gray-500,
+.dark .text-slate-500,
+.dark .text-zinc-500,
+.dark .text-neutral-500,
+.dark .text-gray-400,
+.dark .text-slate-400,
+.dark .text-zinc-400,
+.dark .text-neutral-400 {
+  color: #9ca3af !important;
+}
+
+.dark .text-gray-300,
+.dark .text-slate-300,
+.dark .text-zinc-300,
+.dark .text-neutral-300 {
+  color: #d1d5db !important;
+}
+
+/* Dark Mode Markdown & Prose Text Overrides */
+.dark .prose,
+.dark .tax-prose,
+.dark [class*="prose"] {
+  color: #f2f2f2 !important;
+}
+
+.dark .prose p,
+.dark .prose li,
+.dark .prose span,
+.dark .prose div,
+.dark .prose label,
+.dark .tax-prose p,
+.dark .tax-prose li,
+.dark .tax-prose span {
+  color: #e5e7eb !important;
+}
+
+.dark .prose h1, .dark .prose h2, .dark .prose h3, .dark .prose h4, .dark .prose h5, .dark .prose h6,
+.dark .prose strong, .dark .prose b,
+.dark .tax-prose h1, .dark .tax-prose h2, .dark .tax-prose h3, .dark .tax-prose h4,
+.dark .tax-prose strong, .dark .tax-prose b {
+  color: #f2f2f2 !important;
+}
+
+.dark .prose code,
+.dark .tax-prose code {
+  color: #f2f2f2 !important;
+  background-color: #242424 !important;
+  border-color: #2a2a2a !important;
+}
+
+.dark .prose blockquote,
+.dark .tax-prose blockquote {
+  color: #d1d5db !important;
+  background-color: #242424 !important;
+  border-color: #404040 !important;
+}
+
+.dark .prose a,
+.dark .tax-prose a {
+  color: #60a5fa !important;
+}
+
+/* Dark Mode Hover States & Group Hover Text Colors */
+.dark .hover\:bg-gray-50:hover,
+.dark .hover\:bg-slate-50:hover,
+.dark .hover\:bg-zinc-50:hover,
+.dark .hover\:bg-gray-100:hover,
+.dark .hover\:bg-slate-100:hover,
+.dark .hover\:bg-zinc-100:hover {
+  background-color: #242424 !important;
+}
+
+.dark .hover\:border-gray-300:hover,
+.dark .hover\:border-gray-400:hover,
+.dark .hover\:border-slate-300:hover,
+.dark .hover\:border-slate-400:hover {
+  border-color: #404040 !important;
+}
+
+.dark .hover\:text-gray-900:hover,
+.dark .hover\:text-black:hover,
+.dark .hover\:text-\[\#111111\]:hover,
+.dark .group:hover .group-hover\:text-black,
+.dark .group:hover .group-hover\:text-gray-900,
+.dark .group:hover .group-hover\:text-\[\#111111\],
+.dark .group:hover .group-hover\:text-gray-800 {
+  color: #ffffff !important;
+}
+
+/* Dark Mode Primary Action Buttons */
+.dark button.bg-\[\#111111\],
+.dark button.bg-gray-900,
+.dark button.bg-black,
+.dark a.bg-\[\#111111\],
+.dark a.bg-gray-900,
+.dark a.bg-black {
+  background-color: #f2f2f2 !important;
+  color: #0f0f0f !important;
+}
+
+.dark button.bg-\[\#111111\]:hover,
+.dark button.bg-gray-900:hover,
+.dark button.bg-black:hover,
+.dark a.bg-\[\#111111\]:hover,
+.dark a.bg-gray-900:hover,
+.dark a.bg-black:hover {
+  background-color: #e5e7eb !important;
+}
+
+/* Dark Mode Icons */
+.dark svg.text-gray-900,
+.dark svg.text-gray-800,
+.dark svg.text-gray-700,
+.dark svg.text-black,
+.dark svg.text-\[\#111111\] {
+  color: #f2f2f2 !important;
+}
+
+.dark svg.text-gray-500,
+.dark svg.text-gray-400 {
+  color: #9ca3af !important;
+}
+
+/* Dark Mode User & AI Chat Bubbles */
+.dark .bg-\[\#111111\].text-white {
+  background-color: #262626 !important;
+  color: #f2f2f2 !important;
+}
+
+/* Dark Mode Inputs & Textareas */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #161616 !important;
+  color: #f2f2f2 !important;
+  border-color: #2a2a2a !important;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: #f2f2f2 !important;
+  box-shadow: 0 0 0 1px #f2f2f2 !important;
+  outline: none !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+/* Dark Mode Status Badges */
+.dark [class*="bg-emerald-50"],
+.dark [class*="bg-emerald-100"] {
+  background-color: #112a1e !important;
+  border-color: #1b4332 !important;
+  color: #6ee7b7 !important;
+}
+
+.dark [class*="bg-amber-50"],
+.dark [class*="bg-amber-100"] {
+  background-color: #2e210b !important;
+  border-color: #453211 !important;
+  color: #fde047 !important;
+}
+
+.dark [class*="bg-rose-50"],
+.dark [class*="bg-red-50"] {
+  background-color: #2c1212 !important;
+  border-color: #451b1b !important;
+  color: #fca5a5 !important;
+}
+
+/* Dark Mode Sonner Toasts */
+.dark [data-sonner-toast] {
+  background-color: #1a1a1a !important;
+  color: #f2f2f2 !important;
+  border: 1px solid #2a2a2a !important;
+}
+
+.dark [data-sonner-toast] [data-description] {
+  color: #9ca3af !important;
+}
+
+.dark [data-sonner-toast] [data-title] {
+  color: #f2f2f2 !important;
+}
+
+/* Dark Mode Recharts Custom Styling */
+.dark .recharts-cartesian-grid line {
+  stroke: #2a2a2a !important;
+}
+
+.dark .recharts-text,
+.dark .recharts-cartesian-axis-tick-value,
+.dark .recharts-label {
+  fill: #9ca3af !important;
+  color: #9ca3af !important;
+}
+
+.dark .recharts-default-tooltip {
+  background-color: #1a1a1a !important;
+  border-color: #2a2a2a !important;
+  color: #f2f2f2 !important;
+}
+
+.dark .recharts-legend-item-text {
+  color: #e5e7eb !important;
+}
+
+/* Tactile Utilities */
+.tactile-btn {
+  transition: opacity 120ms ease;
+}
+.tactile-btn:hover {
+  opacity: 0.9;
+}
+.tactile-btn:active {
+  opacity: 0.8;
+}
+
+.tactile-card {
+  transition: border-color 150ms ease;
+}
+.tactile-card:hover {
+  border-color: var(--border-hover) !important;
+}
+
+/* Print Stylesheet */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  aside, nav, header, footer, button, .no-print {
+    display: none !important;
+  }
+}
